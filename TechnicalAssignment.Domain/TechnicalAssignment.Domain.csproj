@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\XMLTransactionStatus.cs" />
+    <Compile Include="Enum\CSVTransactionStatus.cs" />
     <Compile Include="Enum\TransactionStatus.cs" />
     <Compile Include="Implementation\DomainBase.cs" />
     <Compile Include="Implementation\Transaction.cs" />

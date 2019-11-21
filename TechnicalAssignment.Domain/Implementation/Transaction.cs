@@ -7,14 +7,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TechnicalAssignment.Domain.Implementation
 {
-    public class Transaction : DomainBase, IDomainBase, ITransaction
+    public class Transaction : DomainBase, ITransaction
     {
         public Transaction()
         {
             Date = DateTime.Now.ToUnixTimestamp();
         }
 
-        public virtual int TransactionId { get; set; }
+        public virtual string TransactionId { get; set; }
 
         [RegularExpression(@"^\d+\.\d{0,2}$")]
         [Range(0, 9999999999999999.99)]

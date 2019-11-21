@@ -4,7 +4,7 @@ namespace TechnicalAssignment.Domain.Interface
 {
     public interface ITransaction : IDomainBase
     {
-        int TransactionId { get; set; }
+        string TransactionId { get; set; }
         double Amount { get; set; }
         string CurrencyCode { get; set; }
         long Date { get; set; }
