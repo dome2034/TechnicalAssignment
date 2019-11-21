@@ -5,14 +5,14 @@ namespace TechnicalAssignment.DataAccess
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<TechnicalAssignment.DataAccess.TechnicalAssignmentContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<TechnicalAssignmentContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(TechnicalAssignment.DataAccess.TechnicalAssignmentContext context)
+        protected override void Seed(TechnicalAssignmentContext context)
         {
             //  This method will be called after migrating to the latest version.
 
