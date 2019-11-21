@@ -9,6 +9,5 @@ namespace TechnicalAssignment.BusinessLogic.Interface
         Task<T> Get(long internalId);
         Task<T> Update(T item);
         Task<T> Save(T item);
-        void Delete(long internalId);
     }
 }
