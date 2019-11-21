@@ -7,7 +7,7 @@ namespace TechnicalAssignment.DataAccess
     {
         public TechnicalAssignmentContext() : base("name=TechnicalAssignmentConnectionString")
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<TechnicalAssignmentContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<TechnicalAssignmentContext>());
         }
 
         public DbSet<Transaction> Transactions { get; set; }

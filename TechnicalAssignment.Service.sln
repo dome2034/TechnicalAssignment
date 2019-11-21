@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnicalAssignment.Service", "TechnicalAssignment.Service\TechnicalAssignment.Service.csproj", "{D3F6C9D7-201C-4CCF-B666-ECBA6D8666E5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{610451D7-7DAC-4AA9-844D-A089A711D536} = {610451D7-7DAC-4AA9-844D-A089A711D536}
+		{D01534ED-7655-432F-8E79-2EC095542BAD} = {D01534ED-7655-432F-8E79-2EC095542BAD}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnicalAssignment.Tests", "TechnicalAssignment.Tests\TechnicalAssignment.Tests.csproj", "{03DE6EB9-419C-4A9C-ACCC-B7E0DCA3CB8B}"
 EndProject

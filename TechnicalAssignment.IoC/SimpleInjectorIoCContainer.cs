@@ -1,4 +1,5 @@
-﻿using TechnicalAssignment.BusinessLogic.Interface;
+﻿using TechnicalAssignment.BusinessLogic.Implementation;
+using TechnicalAssignment.BusinessLogic.Interface;
 using TechnicalAssignment.Repository.Implementation;
 using TechnicalAssignment.Repository.Interface;
 using SimpleInjector;
