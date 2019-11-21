@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\TransactionRepository.cs" />
+    <Compile Include="Interface\ITransactionRepository.cs" />
     <Compile Include="Interface\IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,9 +60,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Implementation\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TechnicalAssignment.DataAccess\TechnicalAssignment.DataAccess.csproj">
       <Project>{610451d7-7dac-4aa9-844d-a089a711d536}</Project>
