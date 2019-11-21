@@ -1,4 +1,5 @@
 ﻿using TechnicalAssignment.BusinessLogic.Interface;
+using TechnicalAssignment.Repository.Implementation;
 using TechnicalAssignment.Repository.Interface;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
@@ -15,6 +16,8 @@ namespace TechnicalAssignment.IoC
         {
             _container = new Container();
 
+            _container.Register<ITransactionBusinessLogic, TransactionBusinessLogic>(Lifestyle.Singleton);
+            _container.Register<ITransactionRepository, TransactionRepository>(Lifestyle.Singleton);
             if (prepareState)
                 _container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 
