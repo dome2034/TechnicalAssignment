@@ -57,7 +57,7 @@ namespace TechnicalAssignment.Service.Controllers
             ITransaction res = await _transactionBusinessLogic.Save(transaction);
             return CreateResponse(res);
         }
-        public List<TransactionOutput> ConvertToOutput(IList<ITransaction> transaction)
+        private List<TransactionOutput> ConvertToOutput(IList<ITransaction> transaction)
         {
             var output = new List<TransactionOutput>();
             transaction.ToList().ForEach(t =>

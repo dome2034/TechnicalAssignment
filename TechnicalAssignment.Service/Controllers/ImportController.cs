@@ -16,6 +16,7 @@ using System.IO;
 using System;
 using System.Globalization;
 using System.Xml;
+using TechnicalAssignment.Domain.Interface;
 
 namespace TechnicalAssignment.Service.Controllers
 {
@@ -31,7 +32,8 @@ namespace TechnicalAssignment.Service.Controllers
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase postedFile)
         {
-            if (postedFile != null)
+            int expectFilesize = 1 * 1024 * 1024;
+            if (postedFile != null && postedFile.ContentLength <= expectFilesize)
             {
                 try
                 {
@@ -56,10 +58,8 @@ namespace TechnicalAssignment.Service.Controllers
                                 };
                                 Transactions.Add(record);
                             }
-                            Transactions.ForEach(t=> create(t));
+                            Transactions.ForEach(t=> InsertTransaction(t));
                         }
-                        
-                        return View();
                     }
                     else if (fileExtension == ".xml")
                     {
@@ -99,9 +99,7 @@ namespace TechnicalAssignment.Service.Controllers
                                     break;
                             }
                         }
-                        Transactions.ForEach(t => create(t));
-
-                        return View();
+                        Transactions.ForEach(t => InsertTransaction(t));
                     }
 
                     //Validate uploaded file and return error.
@@ -121,22 +119,23 @@ namespace TechnicalAssignment.Service.Controllers
             {
                 ViewBag.Message = "Please select the file first to upload.";
             }
+
+            ViewBag.OkMessage = "Import File Complete!";
             return View();
         }
 
         [HttpPost]
-        public ActionResult create(Transaction transaction)
+         public ActionResult InsertTransaction(Transaction transaction)
         {
             using (var client = new HttpClient())
             {
                 var rootUrl = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
-                client.BaseAddress = new Uri(rootUrl+"/api/transactions");
+                client.BaseAddress = new Uri(rootUrl + "/api/transactions");
 
                 //HTTP POST
-                var postTask = client.PostAsJsonAsync<Transaction>("transactions", transaction);
-                postTask.Wait();
+                var postTask = client.PostAsJsonAsync("transactions", transaction).Result;
 
-                var result = postTask.Result;
+                var result = postTask;
                 if (result.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Index");
