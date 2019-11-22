@@ -144,7 +144,7 @@ namespace TechnicalAssignment.Service.Controllers
 
             ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
 
-            return View(transaction);
+            return View();
         }
     }
 

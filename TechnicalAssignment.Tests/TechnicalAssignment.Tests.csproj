@@ -145,10 +145,6 @@
       <Project>{DEAAAEBC-BFFB-4FFD-953F-90999008D7C2}</Project>
       <Name>TechnicalAssignment.Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TechnicalAssignment.ViewModel\TechnicalAssignment.ViewModel.csproj">
-      <Project>{460e1fa5-2cd4-45dd-b399-d7356521f2ba}</Project>
-      <Name>TechnicalAssignment.ViewModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogic\" />
