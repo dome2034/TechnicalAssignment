@@ -20,6 +20,18 @@ namespace TechnicalAssignment.BusinessLogic.Implementation
         {
             return _transactionRepository.Get(internalId);
         }
+        public Task<IList<ITransaction>> Get(string currencyCode)
+        {
+            return _transactionRepository.Get(currencyCode);
+        }
+        public Task<IList<ITransaction>> Get(long dateStart, long dateEnd)
+        {
+            return _transactionRepository.Get(dateStart, dateEnd);
+        }
+        public Task<IList<ITransaction>> Get(int status)
+        {
+            return _transactionRepository.Get(status);
+        }
 
         public Task<IList<ITransaction>> GetList()
         {

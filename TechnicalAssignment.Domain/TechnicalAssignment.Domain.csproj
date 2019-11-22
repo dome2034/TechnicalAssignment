@@ -52,8 +52,10 @@
     <Compile Include="Enum\CSVTransactionStatus.cs" />
     <Compile Include="Enum\TransactionStatus.cs" />
     <Compile Include="Implementation\DomainBase.cs" />
+    <Compile Include="Implementation\TransactionOutput.cs" />
     <Compile Include="Implementation\Transaction.cs" />
     <Compile Include="Interface\IDomainBase.cs" />
+    <Compile Include="Interface\ITransactionOutput.cs" />
     <Compile Include="Interface\ITransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

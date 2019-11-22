@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CsvHelper, Version=12.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.12.2.1\lib\net47\CsvHelper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -177,6 +180,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ApiControllerBase.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
+    <Compile Include="Controllers\ImportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,6 +239,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Import\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -271,6 +278,10 @@
     <ProjectReference Include="..\TechnicalAssignment.BusinessLogic\TechnicalAssignment.BusinessLogic.csproj">
       <Project>{D75E372B-F298-49FC-A68D-8AF44FEBAED2}</Project>
       <Name>TechnicalAssignment.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechnicalAssignment.DataAccess\TechnicalAssignment.DataAccess.csproj">
+      <Project>{610451d7-7dac-4aa9-844d-a089a711d536}</Project>
+      <Name>TechnicalAssignment.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\TechnicalAssignment.Domain\TechnicalAssignment.Domain.csproj">
       <Project>{D64C2D1F-6596-48EA-8D31-7BBA103CF339}</Project>
