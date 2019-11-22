@@ -311,10 +311,6 @@
       <Project>{deaaaebc-bffb-4ffd-953f-90999008d7c2}</Project>
       <Name>TechnicalAssignment.Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TechnicalAssignment.ViewModel\TechnicalAssignment.ViewModel.csproj">
-      <Project>{460E1FA5-2CD4-45DD-B399-D7356521F2BA}</Project>
-      <Name>TechnicalAssignment.ViewModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
