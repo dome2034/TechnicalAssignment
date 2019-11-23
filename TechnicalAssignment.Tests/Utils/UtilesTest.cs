@@ -45,7 +45,7 @@ namespace TechnicalAssignment.Utils
         public void can_get_currency_codes()
         {
             Assert.IsTrue(CurrencyUtils.GetCurrencyCodes().Any());
-            Assert.IsTrue(CurrencyUtils.IsExist("eus"));
+            Assert.IsTrue(CurrencyUtils.IsExist("USD"));
             Assert.IsFalse(CurrencyUtils.IsExist("SOME_RANDOM"));
         }
     }
