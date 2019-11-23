@@ -2,6 +2,7 @@
 
 1. Implement Repository pattern with .Net MVC
 2. IoC setup (SimpleInjector with a constructor automation injection)
+3. Keep log as File in Folder "ErrorLog", and separate to Debug, Error, Fatal, Verbose, Warning also.
 
 # Remark
 * using .NET MVC
