@@ -17,6 +17,7 @@ using System;
 using System.Globalization;
 using System.Xml;
 using TechnicalAssignment.Domain.Interface;
+using WebErrorLogging.Utilities;
 
 namespace TechnicalAssignment.Service.Controllers
 {
@@ -55,12 +56,14 @@ namespace TechnicalAssignment.Service.Controllers
                     else 
                     {
                         ViewBag.Message = "Please select the csv or xml file";
+                        Helper.WriteWarning(null, ViewBag.Message);
                         return View();
                     }
                     ViewBag.OkMessage = "Import File Complete!";
                 }
                 catch (Exception ex)
                 {
+                    Helper.WriteError(ex, "Error");
                     ViewBag.Message = ex.Message;
                     return View();
                 }
@@ -68,6 +71,7 @@ namespace TechnicalAssignment.Service.Controllers
             else
             {
                 ViewBag.Message = "Please select the file first to upload.";
+                Helper.WriteWarning(null, ViewBag.Message);
             }
 
             return View();
@@ -95,6 +99,7 @@ namespace TechnicalAssignment.Service.Controllers
             }
             catch (Exception ex)
             {
+                Helper.WriteError(ex, "Error");
                 ViewBag.Message = ex.Message;
                 return View();
             }
