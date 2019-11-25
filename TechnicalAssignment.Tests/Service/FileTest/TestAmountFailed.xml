@@ -1,0 +1,10 @@
+<Transactions>
+    <Transaction id="Inv00001">
+        <TransactionDate>2019-01-23T13:45:10</TransactionDate>
+        <PaymentDetails>
+            <Amount>AAAA</Amount>
+            <CurrencyCode>USD</CurrencyCode>
+        </PaymentDetails>
+        <Status>Done</Status>
+    </Transaction>
+</Transactions>

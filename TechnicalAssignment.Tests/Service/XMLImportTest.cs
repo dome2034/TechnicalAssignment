@@ -25,17 +25,38 @@ namespace TechnicalAssignment.Service.Controllers
         [TestMethod]
         public void can_import_data()
         {
-            string filePath = Path.GetFullPath(@"Service\FileTest\Test.xml");
-            FileStream fileStream = new FileStream(filePath, FileMode.Open);
+            FileStream fileStream = new FileStream(Path.GetFullPath(@"Service\FileTest\Test.xml"), FileMode.Open);
+            FileStream fileStream_AmountFailed = new FileStream(Path.GetFullPath(@"Service\FileTest\TestAmountFailed.xml"), FileMode.Open);
+            FileStream fileStream_CurrencyFailed = new FileStream(Path.GetFullPath(@"Service\FileTest\TestCurrencyFailed.xml"), FileMode.Open);
+            FileStream fileStream_DateFailed = new FileStream(Path.GetFullPath(@"Service\FileTest\TestDateFailed.xml"), FileMode.Open);
+            FileStream fileStream_StatusFailed = new FileStream(Path.GetFullPath(@"Service\FileTest\TestStatusFailed.xml"), FileMode.Open);
             Mock<HttpPostedFileBase> uploadedFile = new Mock<HttpPostedFileBase>();
             XMLController csvTest = new XMLController();
 
+            // Test Pass
             uploadedFile.Setup(f => f.InputStream).Returns(fileStream);
-            var actual = csvTest.TransactionExtract(uploadedFile.Object);
-
-            NUnit.Framework.Assert.That(actual, Is.TypeOf<List<Transaction>>());
-
+            NUnit.Framework.Assert.That(csvTest.TransactionExtract(uploadedFile.Object), Is.TypeOf<List<Transaction>>());
             fileStream.Close();
+
+            // Test Amount failed
+            uploadedFile.Setup(f => f.InputStream).Returns(fileStream_AmountFailed);
+            NUnit.Framework.Assert.That(() => csvTest.TransactionExtract(uploadedFile.Object), Throws.Exception);
+            fileStream_AmountFailed.Close();
+
+            // Test Currency failed
+            uploadedFile.Setup(f => f.InputStream).Returns(fileStream_CurrencyFailed);
+            NUnit.Framework.Assert.That(() => csvTest.TransactionExtract(uploadedFile.Object), Throws.Exception);
+            fileStream_CurrencyFailed.Close();
+
+            // Test Date failed
+            uploadedFile.Setup(f => f.InputStream).Returns(fileStream_DateFailed);
+            NUnit.Framework.Assert.That(() => csvTest.TransactionExtract(uploadedFile.Object), Throws.Exception);
+            fileStream_DateFailed.Close();
+
+            // Test Status failed
+            uploadedFile.Setup(f => f.InputStream).Returns(fileStream_StatusFailed);
+            NUnit.Framework.Assert.That(() => csvTest.TransactionExtract(uploadedFile.Object), Throws.Exception);
+            fileStream_StatusFailed.Close();
         }
     }
 }
