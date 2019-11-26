@@ -55,8 +55,8 @@ namespace TechnicalAssignment.Service.Controllers
                     //Validate uploaded file and return error.
                     else 
                     {
-                        ViewBag.Message = "Please select the csv or xml file";
-                        Helper.WriteWarning(null, ViewBag.Message);
+                        ViewBag.ErrorMessage = "Please select the csv or xml file";
+                        Helper.WriteWarning(null, ViewBag.ErrorMessage);
                         return View();
                     }
                     ViewBag.OkMessage = "Import File Complete!";
@@ -64,14 +64,14 @@ namespace TechnicalAssignment.Service.Controllers
                 catch (Exception ex)
                 {
                     Helper.WriteError(ex, "Error");
-                    ViewBag.Message = ex.Message;
+                    ViewBag.ErrorMessage = ex.Message;
                     return View();
                 }
             }
             else
             {
-                ViewBag.Message = "Please select the file first to upload.";
-                Helper.WriteWarning(null, ViewBag.Message);
+                ViewBag.ErrorMessage = "Please select the file first to upload.";
+                Helper.WriteWarning(null, ViewBag.ErrorMessage);
             }
 
             return View();
@@ -100,7 +100,7 @@ namespace TechnicalAssignment.Service.Controllers
             catch (Exception ex)
             {
                 Helper.WriteError(ex, "Error");
-                ViewBag.Message = ex.Message;
+                ViewBag.ErrorMessage = ex.Message;
                 return View();
             }
             

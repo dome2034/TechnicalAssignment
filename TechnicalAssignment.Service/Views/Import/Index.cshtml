@@ -30,15 +30,19 @@
                         <div class="form-group">
                             <div class="col-md-offset-3 col-md-10">
                                 <br />
-                                <span style="color:green;">
-                                    @ViewBag.OkMessage
-                                </span>
-                            </div>
-                            <div class="col-md-offset-3 col-md-10">
-                                <br />
-                                <span style="color:red;">
-                                    @ViewBag.Message
-                                </span>
+                                @if (ViewBag.Message != null)
+                                {
+                                    
+                                    <span style="color:red;">
+                                        @ViewBag.Message
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span style="color:green;">
+                                        @ViewBag.OkMessage
+                                    </span>
+                                }
                             </div>
                         </div>
                     }
