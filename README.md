@@ -9,17 +9,17 @@
 * using EntityFramework
 
 # Get API
-* GET /api/customers
+* GET /api/transactions
     - with parameter CurrencyCode for Query by Currency
-    - Example: /api/customers?CurrencyCode=USD
+    - Example: /api/transactions?CurrencyCode=USD
 
-* GET /api/customers
+* GET /api/transactions
     - with parameter dateStart and dateEnd for Query by Date range ( Unix Timestamp )
-    - Example: /api/customers?dateStart=1574403627$dateEnd=1574403647
+    - Example: /api/transactions?dateStart=1574403627$dateEnd=1574403647
 
-* GET /api/customers
+* GET /api/transactions
     - with parameter status for Query by Status
-    - Example: /api/customers?status=0
+    - Example: /api/transactions?status=0
     
     Status mapping
         0 = A, 
