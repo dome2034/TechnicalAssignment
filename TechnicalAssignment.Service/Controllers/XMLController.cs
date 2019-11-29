@@ -33,6 +33,7 @@ namespace TechnicalAssignment.Service.Controllers
                             if (reader.NodeType == XmlNodeType.EndElement)
                             {
                                 Transactions.Add(record);
+                                record = new Transaction();
                             }
                             else
                             {
@@ -49,7 +50,8 @@ namespace TechnicalAssignment.Service.Controllers
                             record.Amount = double.Parse(Regex.Replace(reader.ReadString(), @"[^\d.]", ""));
                             break;
                         case "CurrencyCode":
-                            record.CurrencyCode = CurrencyUtils.IsExist(reader.ReadString()) ? reader.ReadString() : throw new ArgumentException(reader.ReadString().ToString()+" is not Currency!!");
+                            string currency = reader.ReadString().ToString();
+                            record.CurrencyCode = CurrencyUtils.IsExist(currency) ? currency : throw new ArgumentException(currency + " is not Currency!!");
                             break;
                         case "Status":
                             record.Status = (TransactionStatus)Enum.Parse(typeof(XMLTransactionStatus), reader.ReadString(), true);
@@ -63,7 +65,7 @@ namespace TechnicalAssignment.Service.Controllers
             catch (Exception ex)
             {
                 Helper.WriteError(ex, "Error");
-                throw;
+                throw ex;
             }
             
         }

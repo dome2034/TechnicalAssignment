@@ -1,5 +1,6 @@
 ﻿using TechnicalAssignment.BusinessLogic.Interface;
 using TechnicalAssignment.Domain.Interface;
+using TechnicalAssignment.Domain.Implementation;
 using TechnicalAssignment.Repository.Interface;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -41,6 +42,10 @@ namespace TechnicalAssignment.BusinessLogic.Implementation
         public Task<ITransaction> Save(ITransaction item)
         {
             return _transactionRepository.Save(item);
+        }
+        public Task<ITransaction> SaveMany(List<Transaction> items)
+        {
+            return _transactionRepository.SaveMany(items);
         }
 
         public Task<ITransaction> Update(ITransaction item)

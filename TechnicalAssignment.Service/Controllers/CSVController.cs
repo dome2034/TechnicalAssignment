@@ -41,7 +41,7 @@ namespace TechnicalAssignment.Service.Controllers
             catch (Exception ex)
             {
                 Helper.WriteError(ex, "Error");
-                throw;
+                throw ex;
             }
                 
         }

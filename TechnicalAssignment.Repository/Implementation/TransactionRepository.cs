@@ -62,17 +62,36 @@ namespace TechnicalAssignment.Repository.Implementation
             try
             {
                 var context = new TechnicalAssignmentContext();
-                
-                    var transaction = new Transaction();
+
+                    Transaction transaction = new Transaction();
                     transaction = (Transaction)item;
                     context.Transactions.Add(transaction);
                     context.SaveChanges();
                 }
             catch (DbEntityValidationException ex)
             {
+                throw ex;
             }
             
             return await Get(item.Id);
+        }
+        public async Task<ITransaction> SaveMany(List<Transaction> items)
+        {
+            try
+            {
+                var context = new TechnicalAssignmentContext();
+
+                List<Transaction> transactions = new List<Transaction>();
+                transactions = (List<Transaction>)items;
+                context.Transactions.AddRange(transactions);
+                context.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                throw ex;
+            }
+
+            return await Get(items[0].Id);
         }
 
         public async Task<ITransaction> Update(ITransaction item)

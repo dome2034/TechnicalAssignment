@@ -3,7 +3,6 @@ using TechnicalAssignment.Domain.Interface;
 using TechnicalAssignment.Utils;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TechnicalAssignment.Domain.Implementation
 {
@@ -16,8 +15,8 @@ namespace TechnicalAssignment.Domain.Implementation
 
         public virtual string TransactionId { get; set; }
 
-        //[RegularExpression(@"^\d+(?:\.\d{0,2})?$")]
-        //[Range(0, 9999999999999999.99)]
+        [RegularExpression(@"^\d+(?:\.\d{0,2})?$")]
+        [Range(0, 9999999999999999.99)]
         public virtual double Amount { get; set; }
 
         public virtual string CurrencyCode { get; set; }

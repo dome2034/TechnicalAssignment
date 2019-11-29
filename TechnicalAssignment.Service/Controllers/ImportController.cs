@@ -44,12 +44,12 @@ namespace TechnicalAssignment.Service.Controllers
                     if (fileExtension == ".csv")
                     {
                         var Transactions = CSV.TransactionExtract(postedFile);
-                        Transactions.ForEach(t=> InsertTransaction(t));
+                        InsertTransaction(Transactions);
                     }
                     else if (fileExtension == ".xml")
                     {
                         var Transactions = XML.TransactionExtract(postedFile);
-                        Transactions.ForEach(t => InsertTransaction(t));
+                        InsertTransaction(Transactions);
                     }
 
                     //Validate uploaded file and return error.
@@ -78,7 +78,7 @@ namespace TechnicalAssignment.Service.Controllers
         }
 
         [HttpPost]
-         public ActionResult InsertTransaction(Transaction transaction)
+         public ActionResult InsertTransaction(List<Transaction> transactions)
         {
             try
             {
@@ -87,7 +87,7 @@ namespace TechnicalAssignment.Service.Controllers
                 client.BaseAddress = new Uri(rootUrl + "/api/transactions");
 
                 //HTTP POST
-                var postTask = client.PostAsJsonAsync("transactions", transaction).Result;
+                var postTask = client.PostAsJsonAsync("transactions", transactions).Result;
                 var result = postTask;
                 if (result.IsSuccessStatusCode)
                 {

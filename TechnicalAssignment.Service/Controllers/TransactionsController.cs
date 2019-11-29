@@ -52,9 +52,9 @@ namespace TechnicalAssignment.Service.Controllers
             return CreateResponse(ConvertToOutput(transaction));
         }
         // POST api/transactions
-        public async Task<HttpResponseMessage> Post(Transaction transaction)
+        public async Task<HttpResponseMessage> Post(List<Transaction> transactions)
         {
-            ITransaction res = await _transactionBusinessLogic.Save(transaction);
+            ITransaction res = await _transactionBusinessLogic.SaveMany(transactions);
             return CreateResponse(res);
         }
         private List<TransactionOutput> ConvertToOutput(IList<ITransaction> transaction)
